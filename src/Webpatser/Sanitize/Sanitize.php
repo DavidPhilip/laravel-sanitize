@@ -28,6 +28,9 @@ class Sanitize {
         // Restore octets.
         $string = preg_replace('|---([a-fA-F0-9][a-fA-F0-9])---|', '%$1', $string);
 */
+
+        $string    = preg_replace('/\s+/', '', $string);
+
         // maps German (umlauts) and other European characters onto two characters before just removing diacritics
         $string    = preg_replace( '@\x{00c4}@u'    , "AE",    $string );    // umlaut Ä => AE
         $string    = preg_replace( '@\x{00d6}@u'    , "OE",    $string );    // umlaut Ö => OE
